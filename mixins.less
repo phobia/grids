@@ -79,15 +79,13 @@
     .calc(@span);
 }
 
-// This is to output the helpers within media queries, otherwise they can't be used with extend().
-.grid-outputHelpers() {
-    .grid-spanBase {
-        float: left;
-        padding-left: (@gutterWidth / 2);        
-        padding-right: (@gutterWidth / 2);        
-        & when (@applyBorderBox) {
-            border-box: border-box;
-        }
+// Styles shared by all spans
+.grid-spanBase() {
+    float: left;
+    padding-left: (@gutterWidth / 2);        
+    padding-right: (@gutterWidth / 2);        
+    & when (@applyBorderBox) {
+        border-box: border-box;
     }
 }
 
