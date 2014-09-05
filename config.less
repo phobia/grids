@@ -39,16 +39,15 @@
     // Responsive classes
     //
     // The following will create classes such as .span-s-2, .span-m-2 etc.
-    // Uncomment and/or create your own. See generator for parameter details.
-    // 
+
     @media screen and (max-width: 467px) {
-        .generateGridClasses(@columns, s-);
+        .grid-generate(@columns, s-);
     }
     
     @media screen and (min-width: 468px) and (max-width: 1023px) {
-        .generateGridClasses(@columns, m-);
+        .grid-generate(@columns, m-);
     }    
     
     @media screen and (min-width: 1024px) {
-        .generateGridClasses(@columns, l-);
+        .grid-generate(@columns, l-);
     }
