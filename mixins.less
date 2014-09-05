@@ -88,6 +88,39 @@
     }
 }
 
+// Generate grid classes
+//
+// The following block will generate .span, .push and .pull classes for a given number of columns
+//
+// @columns - number of columns
+// @keyword - a string inserted after the prefix, used for e.g. separating responsive classes. E.g. The keyword value "m-" could create .span-m-10 { ... } 
+.grid-generate(@columns: @columns, @keyword: ~"") {
+    
+    .loop (@index) when (@index > 0) {
+      @newClassName: ~"@{columnClassName}@{keyword}@{index}"; 
+
+      .@{newClassName} { 
+          .grid-span(@index);
+      }
+      
+      & when (@generatePullClasses) {
+          .@{pullClassName}@{keyword}@{index} { 
+              .grid-pull(@index);
+          }
+      }
+
+      & when (@generatePushClasses) {
+          .@{pushClassName}@{keyword}@{index} { 
+              .grid-push(@index);
+          }  
+      }
+
+      .loop (@index - 1);
+    }
+
+    .loop (@columns);  
+
+}
 //@todo delete?
 .clearfix() {
     &:before,
