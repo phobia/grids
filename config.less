@@ -31,23 +31,3 @@
 
     //Output pull classes?
     @generatePullClasses: false;
-
-// Generate Grid Classes
-//
-
-    //
-    // Responsive classes
-    //
-    // The following will create classes such as .span-s-2, .span-m-2 etc.
-
-    @media screen and (max-width: 467px) {
-        .grid-generate(@columns, s-);
-    }
-    
-    @media screen and (min-width: 468px) and (max-width: 1023px) {
-        .grid-generate(@columns, m-);
-    }    
-    
-    @media screen and (min-width: 1024px) {
-        .grid-generate(@columns, l-);
-    }
