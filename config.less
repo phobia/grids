@@ -1,0 +1,54 @@
+// Grid configuration
+//
+
+// Column and gutter
+//
+// Having 12 columns is one of the most flexible configurations, allowing for many divisions.
+//
+// To support the standarized ad formats in Norway, such as 180px, 480px, 580px and 980px,
+// the grid can be configured with 20 columns which when used in a 980px wrapper will have those
+// divisions. 10 columns would work as well, but then you'd lose the option to divide by 4.
+
+    @columns: 12;
+    @gutterWidth: 20px;
+
+// Naming
+
+    @columnClassName: span-;
+    @pushClassName:   push-;
+    @pullClassName:   pull-;
+    @rowClassName:    row;
+
+// Output settings
+
+    // Apply box-sizing:border-box? The grid framework expects border-box to be 
+    // applied, but some sites may have this model allready applied, in which 
+    // case there's no reason to output code for it.
+    @applyBorderBox: true;
+
+    //Output push classes? 
+    @generatePushClasses: true;
+
+    //Output pull classes?
+    @generatePullClasses: false;
+
+// Generate Grid Classes
+//
+
+    //
+    // Responsive classes
+    //
+    // The following will create classes such as .span-s-2, .span-m-2 etc.
+    // Uncomment and/or create your own. See generator for parameter details.
+    // 
+    @media screen and (max-width: 467px) {
+        .generateGridClasses(@columns, s-);
+    }
+    
+    @media screen and (min-width: 468px) and (max-width: 1023px) {
+        .generateGridClasses(@columns, m-)
+    }    
+    
+    @media screen and (min-width: 1024px) {
+        .generateGridClasses(@columns, l-)
+    }
