@@ -15,9 +15,9 @@
     padding: 0;
     margin-left: @m;
     margin-right: @m;
-    
+
     & when (@applyBorderBox) {
-        border-box: border-box;
+        box-sizing: border-box;
     }
 }
 
@@ -44,7 +44,7 @@
 //   
 .grid-push(@span) {
     .grid-calcWidth(@span);
-    margin-left: @width;
+    left: @width;
 }
 
 // Pull
@@ -56,7 +56,7 @@
 //   
 .grid-pull(@span) {
     .grid-calcWidth(@span);
-    margin-left: -@width;
+    right: @width;
 }
 
 // Calculate column width
@@ -82,9 +82,11 @@
 .grid-spanBase() {
     float: left;
     padding-left: (@gutterWidth / 2);        
-    padding-right: (@gutterWidth / 2);        
+    padding-right: (@gutterWidth / 2);   
+    position: relative;
+         
     & when (@applyBorderBox) {
-        border-box: border-box;
+        box-sizing: border-box;
     }
 }
 
