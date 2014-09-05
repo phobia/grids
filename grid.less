@@ -1,3 +1,12 @@
 @import "config";
 @import "mixins";
-@import "generator";
+
+//Create row class
+.@{rowClassName} {
+    .grid-row();
+}
+
+//Shared column styles
+.@{rowClassName} [class*=~".@{columnClassName}"] {
+    .grid-spanBase();    
+}
