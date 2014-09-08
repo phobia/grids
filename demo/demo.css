@@ -1,8 +1,8 @@
 .row {
-  list-style: none;
-  padding: 0;
   margin-left: -10px;
   margin-right: -10px;
+  list-style: none;
+  padding: 0;
   box-sizing: border-box;
 }
 .row:before,
@@ -14,13 +14,21 @@
   clear: both;
 }
 .row [class*=span-] {
-  float: left;
   padding-left: 10px;
   padding-right: 10px;
+  float: left;
   position: relative;
   box-sizing: border-box;
 }
 @media screen and (max-width: 467px) {
+  .row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .row [class*=span-s-] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
   .span-s-12 {
     width: 100%;
   }

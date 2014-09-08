@@ -7,6 +7,8 @@
         body {
             font-family: sans-serif;
             color: #333;
+            padding: 20px;
+            margin: 0;
         }
         .demo {
             margin-bottom: 20px;
@@ -14,17 +16,26 @@
             background: #eee;
             font-size: 0.8em;
         }
-        .demo--a {
-            background: #deface;
+        .demo--a { background: #deface; }
+        .demo--b { background: #bada55; }
+        .breakpoint-info {
+            font-size: 12px;
+            color: #fff;
+            background: #777;
+            padding: 0.5em;
+            border-radius: 0 0 0.5em 0.5em;
+            display: inline-block;
+            position: fixed;
+            top: 0;
+            right: 20px;
+            margin: 0;
+            z-index: 1;
         }
-        .demo--b {
-            background: #bada55;
+        .breakpoint-name:before {
+            font-weight: bold;
         }
-        .demo:before {
-            /*content: "Col ";*/
-        }
-
         @media screen and (max-width: 467px) {
+            .breakpoint-name:before { content: "Small";} 
             .span-s-1 .demo:after  { content: "span 1"; }
             .span-s-2 .demo:after  { content: "span 2"; }
             .span-s-3 .demo:after  { content: "span 3"; }
@@ -40,6 +51,7 @@
         }
 
         @media screen and (min-width: 468px) and (max-width: 1023px) {
+            .breakpoint-name:before { content: "Medium";} 
             .span-m-1 .demo:after  { content: "span 1"; }
             .span-m-2 .demo:after  { content: "span 2"; }
             .span-m-3 .demo:after  { content: "span 3"; }
@@ -55,6 +67,7 @@
         }
 
         @media screen and (min-width: 1024px) {
+            .breakpoint-name:before { content: "Large";} 
             .span-l-1 .demo:after  { content: "span 1"; }
             .span-l-2 .demo:after  { content: "span 2"; }
             .span-l-3 .demo:after  { content: "span 3"; }
@@ -75,11 +88,17 @@
 <body>
 
     <h1>Grid demo</h1>
+    <p>This demo uses the default grid configuration. Breakpoints, columns, naming etc. may be configured differently if desired.</p>
 
-    <p>This demo uses the default grid configuration. Columns, naming etc. may be configured differently if desired.</p>
+    <dl>
+        <dt>Columns</dt>
+        <dd>12</dd>
+        <dt>Gutter</dt>
+        <dd>20px, 10px for the small breakpoint.</dd>
+    </dl>
+    <p class="breakpoint-info"><span class="breakpoint-name"></span> breakpoint active</p>
 
     <h2>Responsive</h2>
-
     <p>4 cols on large screen, 2 on medium, 1 on small.</p>
 
     <div class="row">
@@ -97,15 +116,15 @@
         </div>
     </div>
 
-    <h2>Push & pull</h2>
+    <h2>Push &amp; pull</h2>
 
     <p>On medium screen, A switches place with B.</p>
 
     <div class="row">
-        <div class="span-m-6 push-m-6 span-l-6">
+        <div class="span-s-6 span-m-6 push-m-6 span-l-6">
             <div class="demo demo--a"></div>
         </div>
-        <div class="span-m-6 pull-m-6 span-l-6">
+        <div class="span-s-6 span-m-6 pull-m-6 span-l-6">
             <div class="demo demo--b"></div>
         </div>
     </div>
@@ -113,7 +132,6 @@
     <h2>Spans</h2>
 
     <p>All width variations in the default configuration.</p>
-
     <p>Demonstrated on media query active from 1024px widths and up.</p>
 
         <div class="row">

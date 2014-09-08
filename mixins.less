@@ -7,18 +7,27 @@
 // @gutter - Set horizontal distance between columns. By default uses value from config. Example: 20px
 //
 .grid-row(@gutter: @gutterWidth) {
-    @m: (@gutterWidth / 2) * -1;
-
     .clearfix();
-    
+    .grid-row-gutter(@gutter);    
     list-style: none;
     padding: 0;
-    margin-left: @m;
-    margin-right: @m;
 
     & when (@applyBorderBox) {
         box-sizing: border-box;
     }
+}
+
+// Grid row gutter
+// counteracts the column gutter to remove spacing on the outer left and right.
+// Can be used in a responsive setting to redefine the gutter without repeating clearfix etc.
+//
+// Parameters: 
+// @gutter
+//
+.grid-row-gutter(@gutter) {
+    @m: (@gutter / 2) * -1;
+    margin-left: @m;
+    margin-right: @m;
 }
 
 // Span
@@ -31,6 +40,17 @@
 .grid-span(@span) {
     .grid-calcWidth(@span);
     width: @width;
+}
+
+// Grid span gutter
+// Can be used in a responsive setting to redefine the gutter without repeating clearfix etc.
+//
+// Parameters: 
+// @gutter
+//
+.grid-span-gutter(@gutter) {
+    padding-left: (@gutter / 2);        
+    padding-right: (@gutter / 2);   
 }
 
 // Push
@@ -79,10 +99,9 @@
 }
 
 // Styles shared by all spans
-.grid-spanBase() {
+.grid-spanBase(@gutter: @gutterWidth) {
+    .grid-span-gutter(@gutter);
     float: left;
-    padding-left: (@gutterWidth / 2);        
-    padding-right: (@gutterWidth / 2);   
     position: relative;
          
     & when (@applyBorderBox) {
@@ -96,7 +115,7 @@
 //
 // @columns - number of columns
 // @keyword - a string inserted after the prefix, used for e.g. separating responsive classes. E.g. The keyword value "m-" could create .span-m-10 { ... } 
-.grid-generate(@columns: @columns, @keyword: ~"") {
+.grid-generate(@columns: @columns, @keyword: ~"", @gutter: @gutterWidth) {
     
     .loop (@index) when (@index > 0) {
       @newClassName: ~"@{columnClassName}@{keyword}@{index}"; 
@@ -118,6 +137,15 @@
       }
 
       .loop (@index - 1);
+    }
+
+    & when not (@gutter = @gutterWidth) {
+        .@{rowClassName} {
+            .grid-row-gutter(@gutter);
+        }
+        .@{rowClassName} [class*=~"@{columnClassName}@{keyword}"] {
+            .grid-span-gutter(@gutter);    
+        }
     }
 
     .loop (@columns);  
