@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid demo</title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            color: #333;
+        }
+        .demo {
+            margin-bottom: 20px;
+            padding: 1em;
+            background: #eee;
+            font-size: 0.8em;
+        }
+        .demo--a {
+            background: #deface;
+        }
+        .demo--b {
+            background: #bada55;
+        }
+        .demo:before {
+            /*content: "Col ";*/
+        }
+
+        @media screen and (max-width: 467px) {
+            .span-s-1 .demo:after  { content: "span 1"; }
+            .span-s-2 .demo:after  { content: "span 2"; }
+            .span-s-3 .demo:after  { content: "span 3"; }
+            .span-s-4 .demo:after  { content: "span 4"; }
+            .span-s-5 .demo:after  { content: "span 5"; }
+            .span-s-6 .demo:after  { content: "span 6"; }
+            .span-s-7 .demo:after  { content: "span 7"; }
+            .span-s-8 .demo:after  { content: "span 8"; }
+            .span-s-9 .demo:after  { content: "span 9"; }
+            .span-s-10 .demo:after { content: "span 10"; }
+            .span-s-11 .demo:after { content: "span 11"; }
+            .span-s-12 .demo:after { content: "span 12"; }
+        }
+
+        @media screen and (min-width: 468px) and (max-width: 1023px) {
+            .span-m-1 .demo:after  { content: "span 1"; }
+            .span-m-2 .demo:after  { content: "span 2"; }
+            .span-m-3 .demo:after  { content: "span 3"; }
+            .span-m-4 .demo:after  { content: "span 4"; }
+            .span-m-5 .demo:after  { content: "span 5"; }
+            .span-m-6 .demo:after  { content: "span 6"; }
+            .span-m-7 .demo:after  { content: "span 7"; }
+            .span-m-8 .demo:after  { content: "span 8"; }
+            .span-m-9 .demo:after  { content: "span 9"; }
+            .span-m-10 .demo:after { content: "span 10"; }
+            .span-m-11 .demo:after { content: "span 11"; }
+            .span-m-12 .demo:after { content: "span 12"; }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .span-l-1 .demo:after  { content: "span 1"; }
+            .span-l-2 .demo:after  { content: "span 2"; }
+            .span-l-3 .demo:after  { content: "span 3"; }
+            .span-l-4 .demo:after  { content: "span 4"; }
+            .span-l-5 .demo:after  { content: "span 5"; }
+            .span-l-6 .demo:after  { content: "span 6"; }
+            .span-l-7 .demo:after  { content: "span 7"; }
+            .span-l-8 .demo:after  { content: "span 8"; }
+            .span-l-9 .demo:after  { content: "span 9"; }
+            .span-l-10 .demo:after { content: "span 10"; }
+            .span-l-11 .demo:after { content: "span 11"; }
+            .span-l-12 .demo:after { content: "span 12"; }
+        }
+
+    </style>
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+    <h1>Grid demo</h1>
+
+    <p>This demo uses the default grid configuration. Columns, naming etc. may be configured differently if desired.</p>
+
+    <h2>Responsive</h2>
+
+    <p>4 cols on large screen, 2 on medium, 1 on small.</p>
+
+    <div class="row">
+        <div class="span-l-3 span-m-6 span-s-12">
+            <div class="demo"></div>
+        </div>
+        <div class="span-l-3 span-m-6 span-s-12">
+            <div class="demo"></div>
+        </div>
+        <div class="span-l-3 span-m-6 span-s-12">
+            <div class="demo"></div>
+        </div>
+        <div class="span-l-3 span-m-6 span-s-12">
+            <div class="demo"></div>
+        </div>
+    </div>
+
+    <h2>Push & pull</h2>
+
+    <p>On medium screen, A switches place with B.</p>
+
+    <div class="row">
+        <div class="span-m-6 push-m-6 span-l-6">
+            <div class="demo demo--a"></div>
+        </div>
+        <div class="span-m-6 pull-m-6 span-l-6">
+            <div class="demo demo--b"></div>
+        </div>
+    </div>
+
+    <h2>Spans</h2>
+
+    <p>All width variations in the default configuration.</p>
+
+    <p>Demonstrated on media query active from 1024px widths and up.</p>
+
+        <div class="row">
+            <div class="span-l-12">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-11">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-10">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-3">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-9">
+                <div class="demo"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="span-l-4">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-8">
+                <div class="demo"></div>
+            </div>
+        </div>    
+
+        <div class="row">
+            <div class="span-l-5">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-7">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-6">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-6">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+    <h2>Equal divisions</h2>
+
+    <p>Demonstrated on media query active from 1024px widths and up.</p>
+
+        <div class="row">
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-1">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-2">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-3">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-3">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-3">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-3">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span-l-4">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-4">
+                <div class="demo"></div>
+            </div>
+            <div class="span-l-4">
+                <div class="demo"></div>
+            </div>
+        </div>
+
+
+</body>
+</html>
